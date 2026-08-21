@@ -1,2 +1,2 @@
-# MdP---App-P1
+# App 1
 Complejidad Temporal y Patrones de Diseño de Software - Práctica 1
