@@ -1,13 +1,20 @@
-public interface Comparable
-{
-    bool sosIgual(Comparable otro);
-/*Devuelve v o f si el objeto que recibe el mensaje es el
-mismo que el "comparable" recibido por parámetro*/
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-    bool sosMayor(Comparable otro);
-/*Devuelve v o f si el objeto que recibe el mensaje es más
-chico que el "comparable" recibido por parámetro*/
-    bool sosMenor(Comparable otro);
-/*Devuelve v o f si el objeto que recibe el mensaje es más
-grande que l "comparable" recibido por parámetro*/
-}   
+namespace App1.interfaces
+{
+    internal interface Comparable
+    {
+        bool sosIgual(Comparable otro);
+        /*Devuelve v o f si el objeto que recibe el mensaje es el
+        mismo que el "comparable" recibido por parámetro*/
+
+        bool sosMayor(Comparable otro);
+        /*Devuelve v o f si el objeto que recibe el mensaje es más
+        chico que el "comparable" recibido por parámetro*/
+        bool sosMenor(Comparable otro);
+        /*Devuelve v o f si el objeto que recibe el mensaje es más
+        grande que l "comparable" recibido por parámetro*/
+    }
+}

@@ -6,13 +6,16 @@ namespace App1
 {
     public class Visualizacion : Comparable
     {
-        private int cantidad;
+        // ATT
+        private int cantidad { get; }
 
+        // Construct
         public Visualizacion(int cantidad)
         {
             this.cantidad = cantidad;
         }
 
+        // Meth
         public int getCantidad()
         {
             return cantidad;
