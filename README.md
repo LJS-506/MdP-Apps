@@ -1,2 +1,3 @@
-# App 1
-Complejidad Temporal y Patrones de Diseño de Software - Práctica 1
+# Apps
+Práctica 1
+----------
