@@ -1,4 +1,4 @@
-interface Comparable
+public interface Comparable
 {
     bool sosIgual(Comparable otro);
 /*Devuelve v o f si el objeto que recibe el mensaje es el
