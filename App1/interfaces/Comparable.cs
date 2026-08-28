@@ -9,5 +9,5 @@ mismo que el "comparable" recibido por parámetro*/
 chico que el "comparable" recibido por parámetro*/
     bool sosMenor(Comparable otro);
 /*Devuelve v o f si el objeto que recibe el mensaje es más
-grande que el "comparable" recibido por parámetro*/
+grande que l "comparable" recibido por parámetro*/
 }   
