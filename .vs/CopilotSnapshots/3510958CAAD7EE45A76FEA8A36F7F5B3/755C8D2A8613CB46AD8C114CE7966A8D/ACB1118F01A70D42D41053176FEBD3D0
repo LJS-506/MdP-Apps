@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using App1.interfaces;
+
+namespace App1.orden
+{
+    internal class Pila: Coleccionable
+    {
+        // ATT
+        private List<Comparable> listaElems;
+
+        // Construct
+        public Pila()
+        {
+            listaElems = new List<Comparable>();
+        }
+
+        // Meth
+        public void apilar(Comparable c)
+        {
+            listaElems.Add(c);
+        }
+
+        public Comparable desapilar()
+        {
+            if (listaElems.Count == 0)
+            {
+                return null;
+            }
+            Comparable elem = listaElems[listaElems.Count-1];
+            listaElems.RemoveAt(listaElems.Count-1);
+            return elem;
+        }
+
+        public Comparable peek()
+        {
+            return listaElems[listaElems.Count - 1];
+        }
+    }
+}
