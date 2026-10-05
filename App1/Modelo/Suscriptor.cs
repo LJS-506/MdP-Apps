@@ -4,7 +4,7 @@ using System.Text;
 
 namespace App1.Modelo
 {
-    internal class Suscriptor: Perfil
+    internal class Suscriptor: Perfil, interfaces.Comparable
     {
         // ATT
         private int mesesDeSuscripcion;
@@ -23,5 +23,29 @@ namespace App1.Modelo
 
         public int getHorasVistas()
         { return horasVistas;}
+
+        public override string ToString()
+        {
+            return mesesDeSuscripcion.ToString();
+        }
+
+        // reimplementacion comparable
+        public override bool sosIgual(interfaces.Comparable otro)
+        {
+            Suscriptor obj = (Suscriptor)otro;
+            return obj.getMesesDeSuscripcion() == mesesDeSuscripcion;
+        }
+
+        public override bool sosMenor(interfaces.Comparable otro)
+        {
+            Suscriptor obj = (Suscriptor)otro;
+            return mesesDeSuscripcion < obj.getMesesDeSuscripcion();
+        }
+
+        public override bool sosMayor(interfaces.Comparable otro)
+        {
+            Suscriptor obj = (Suscriptor)otro;
+            return mesesDeSuscripcion > obj.getMesesDeSuscripcion();
+        }
     }
 }

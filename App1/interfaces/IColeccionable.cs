@@ -9,12 +9,12 @@ namespace App1.interfaces
         //Representa objetos que almacenan comparables
         public int cuantos();
 
-        public IComparable minimo();
+        public Comparable minimo();
 
-        public IComparable maximo();
+        public Comparable maximo();
 
-        public void agregar(IComparable c);
+        public void agregar(Comparable c);
 
-        public bool contiene(IComparable c);
+        public bool contiene(Comparable c);
     }
 }

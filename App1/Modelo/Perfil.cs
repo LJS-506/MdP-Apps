@@ -4,7 +4,7 @@ using System.Text;
 
 namespace App1.Modelo
 {
-    abstract class Perfil: interfaces.IComparable
+    abstract class Perfil: interfaces.Comparable
     {
         // ATT
         private string nombre;
@@ -25,19 +25,19 @@ namespace App1.Modelo
         { return id;}
 
         // Implementacion comparable
-        public bool sosIgual(interfaces.IComparable otro)
+        public virtual bool sosIgual(interfaces.Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return obj.getId() == id;
         }
 
-        public bool sosMenor(interfaces.IComparable otro)
+        public virtual bool sosMenor(interfaces.Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return id < obj.getId();
         }
 
-        public bool sosMayor(interfaces.IComparable otro)
+        public virtual bool sosMayor(interfaces.Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return id > obj.getId();

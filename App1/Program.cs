@@ -2,7 +2,6 @@
 using App1.Modelo;
 using App1.orden;
 using System.Text;
-
 public class Program
 {
     public static void Main()
@@ -10,12 +9,8 @@ public class Program
         Pila pila = new Pila();
         Cola cola = new Cola();
         Catalogo catalogo = new Catalogo(pila,cola);
-        llenar(pila);
-        llenar(cola);
-        Console.WriteLine("-- Pila --");
-        informar(pila);
-        Console.WriteLine("-- Cola --");
-        informar(cola);
+        llenarSuscriptores(pila);
+        llenarSuscriptores(cola);
         Console.WriteLine("-- Catalogo --");
         informar(catalogo);
     }
@@ -51,19 +46,30 @@ public class Program
 
     static void informar(IColeccionable coleccion)
     {
-        Console.WriteLine("Cuantos: " + coleccion.cuantos());
-        Console.WriteLine("Mínimo: " + coleccion.minimo());
-        Console.WriteLine("Máximo: " + coleccion.maximo());
-        Console.Write("Ingrese un valor a buscar en la colección: ");
-        Visualizacion valor = new Visualizacion(int.Parse(Console.ReadLine()));
-        if (coleccion.contiene(valor))
+        /* Falta implementar el patron de diseño que me permita alternar entre el tipo visualización y suscriptor, 
+         * para poder informar correctamente de ambos tipos de colecciones. */
+        try
         {
-            Console.WriteLine("El elemento leído está en la colección.\n");
+            Console.WriteLine("Cuantos: " + coleccion.cuantos());
+            Console.WriteLine("Mínimo: " + coleccion.minimo());
+            Console.WriteLine("Máximo: " + coleccion.maximo());
+            Console.Write("Ingrese un valor a buscar en la colección: ");
+            int valor = int.Parse(Console.ReadLine());
+            Comparable vis = new Visualizacion(valor);
+            if (coleccion.contiene(vis))
+            {
+                Console.WriteLine("El elemento leído está en la colección.\n");
+            }
+            else
+            {
+                Console.WriteLine("El elemento leído no está en la colección.\n");
+            }
         }
-        else
+        catch (InvalidCastException)
         {
-            Console.WriteLine("El elemento leído no está en la colección.\n");
+            Console.WriteLine("No se puede comparar, las colecciones son diferentes");
         }
+        
     }
 }
 

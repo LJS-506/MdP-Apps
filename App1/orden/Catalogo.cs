@@ -25,7 +25,7 @@ namespace App1.orden
             return cantidad;
         }
 
-        public interfaces.IComparable minimo()
+        public interfaces.Comparable minimo()
         {
             int p = int.Parse(pila.minimo().ToString());
             int c = int.Parse(cola.minimo().ToString());
@@ -34,7 +34,7 @@ namespace App1.orden
             return cola.minimo();
         }
 
-        public interfaces.IComparable maximo()
+        public interfaces.Comparable maximo()
         {
             int p = int.Parse(pila.maximo().ToString());
             int c = int.Parse(cola.maximo().ToString());
@@ -43,9 +43,9 @@ namespace App1.orden
             return cola.maximo();
         }
 
-        public void agregar(interfaces.IComparable c) { }
+        public void agregar(interfaces.Comparable c) { }
 
-        public bool contiene(interfaces.IComparable c)
+        public bool contiene(interfaces.Comparable c)
         {
             if (pila.contiene(c))
             { return true;}
