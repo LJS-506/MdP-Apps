@@ -4,6 +4,7 @@ obj/
 
 # Visual Studio
 .vs/
+*.mpack
 
 # User-specific files
 *.user
@@ -22,3 +23,4 @@ obj/
 # OS files
 .DS_Store
 Thumbs.db
+

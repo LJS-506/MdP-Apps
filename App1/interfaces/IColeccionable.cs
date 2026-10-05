@@ -4,17 +4,17 @@ using System.Text;
 
 namespace App1.interfaces
 {
-    internal interface Coleccionable
+    public interface IColeccionable
     {
         //Representa objetos que almacenan comparables
         public int cuantos();
 
-        public Comparable minimo();
+        public IComparable minimo();
 
-        public Comparable maximo();
+        public IComparable maximo();
 
-        public void agregar(Comparable c);
+        public void agregar(IComparable c);
 
-        public bool contiene(Comparable c);
+        public bool contiene(IComparable c);
     }
 }

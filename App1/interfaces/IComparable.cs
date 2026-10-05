@@ -4,16 +4,16 @@ using System.Text;
 
 namespace App1.interfaces
 {
-    internal interface Comparable
+    public interface IComparable
     {
-        bool sosIgual(Comparable otro);
+        bool sosIgual(IComparable otro);
         /*Devuelve v o f si el objeto que recibe el mensaje es el
         mismo que el "comparable" recibido por parámetro*/
 
-        bool sosMayor(Comparable otro);
+        bool sosMenor(IComparable otro);
         /*Devuelve v o f si el objeto que recibe el mensaje es más
         chico que el "comparable" recibido por parámetro*/
-        bool sosMenor(Comparable otro);
+        bool sosMayor(IComparable otro);
         /*Devuelve v o f si el objeto que recibe el mensaje es más
         grande que l "comparable" recibido por parámetro*/
     }

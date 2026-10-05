@@ -5,33 +5,33 @@ using System.Text;
 
 namespace App1.orden
 {
-    internal class Cola: Coleccionable
+    internal class Cola: IColeccionable
     {
         // ATT
-        private List<Comparable> listaElems;
+        private List<interfaces.IComparable> listaElems;
 
         // Construct
         public Cola()
         {
-            foreach(Comparable elem in listaElems)
-            {listaElems.Add(elem);}
+            foreach(interfaces.IComparable elem in listaElems)
+            { listaElems.Add(elem);}
         }
 
         // Meth
-        public void agregar(Comparable c)
+        public void agregar(interfaces.IComparable c)
         {
             listaElems.Add(c);
         }
 
-        public Comparable desencolar()
+        public interfaces.IComparable desencolar()
         {
             if (listaElems.Count == 0) {return null;}
-            Comparable elem = listaElems[0];
+            interfaces.IComparable elem = listaElems[0];
             listaElems.RemoveAt(0);
             return elem;
         }
 
-        public Comparable peek()
+        public interfaces.IComparable peek()
         {
             return listaElems[0];
         }
@@ -42,9 +42,9 @@ namespace App1.orden
             return listaElems.Count;
         }
 
-        public Comparable minimo()
+        public interfaces.IComparable minimo()
         {
-            Comparable minimo = listaElems[0];
+            interfaces.IComparable minimo = listaElems[0];
             for (int i=1; i<listaElems.Count; i++)
             {
                 if (listaElems[i].sosMenor(minimo)) {minimo = listaElems[i];}
@@ -52,9 +52,9 @@ namespace App1.orden
             return minimo;
         }
         
-        public Comparable maximo()
+        public interfaces.IComparable maximo()
         {
-            Comparable maximo = listaElems[0];
+            interfaces.IComparable maximo = listaElems[0];
             for (int i=1; i<listaElems.Count; i++)
             {
                 if (listaElems[i].sosMayor(maximo)) {maximo = listaElems[i];}
@@ -62,9 +62,9 @@ namespace App1.orden
             return maximo;
         }
 
-        public bool contiene(Comparable c)
+        public bool contiene(interfaces.IComparable c)
         {
-            foreach (Comparable elem in listaElems)
+            foreach (interfaces.IComparable elem in listaElems)
             {
                 if (elem.sosIgual(c)) {return true;}
             }
