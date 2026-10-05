@@ -8,12 +8,15 @@ public class Program
     {
         Pila pila = new Pila();
         Cola cola = new Cola();
+        Catalogo catalogo = new Catalogo(pila,cola);
         llenar(pila);
         llenar(cola);
         Console.WriteLine("-- Pila --");
         informar(pila);
         Console.WriteLine("-- Cola --");
         informar(cola);
+        Console.WriteLine("-- Catalogo --");
+        informar(catalogo);
     }
 
     static void llenar(IColeccionable coleccion)
