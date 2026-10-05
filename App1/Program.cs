@@ -1,6 +1,7 @@
 ﻿using App1.interfaces;
 using App1.Modelo;
 using App1.orden;
+using System.Text;
 
 public class Program
 {
@@ -26,6 +27,25 @@ public class Program
         {
             int randomVis = rnd.Next(1, 1000000);
             coleccion.agregar(new Visualizacion(randomVis));
+        }
+    }
+
+    static void llenarSuscriptores(IColeccionable coleccion)
+    {
+        Random rnd = new Random();
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        string user = "user";
+        for (int i = 0; i < 10; i++)
+        { user += chars[rnd.Next(chars.Length)];}
+
+        for (int i = 0; i < 20; i++)
+        {
+            Suscriptor sus = new Suscriptor(
+                user,
+                rnd.Next(100000000, 1000000000),
+                rnd.Next(1, 121),
+                rnd.Next(1, 10000));
+            coleccion.agregar(sus);
         }
     }
 
