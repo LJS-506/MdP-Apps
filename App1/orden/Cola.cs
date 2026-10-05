@@ -10,12 +10,12 @@ namespace App1.orden
         // ATT
         private List<interfaces.IComparable> listaElems;
 
-        // Construct
+        // Constructor
         public Cola()
         {
-            foreach(interfaces.IComparable elem in listaElems)
-            { listaElems.Add(elem);}
+            listaElems = new List<interfaces.IComparable>();
         }
+
 
         // Meth
         public void agregar(interfaces.IComparable c)

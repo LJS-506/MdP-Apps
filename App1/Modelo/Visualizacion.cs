@@ -21,6 +21,10 @@ namespace App1.Modelo
         {
             return cantidad;
         }
+        public override string ToString()
+        {
+            return cantidad.ToString();
+        }
 
         //Implementacion comparable
         public bool sosIgual(interfaces.IComparable otro)
