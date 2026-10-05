@@ -14,3 +14,19 @@ static void llenar(IColeccionable coleccion)
         coleccion.agregar(new Visualizacion(randomVis));
     }
 }
+
+static void informar(IColeccionable coleccion)
+{
+    Console.WriteLine(coleccion.cuantos());
+    Console.WriteLine(coleccion.minimo());
+    Console.WriteLine(coleccion.maximo());
+    Visualizacion valor = new Visualizacion(int.Parse(Console.ReadLine()));
+    if (coleccion.contiene(valor))
+    {
+        Console.WriteLine("El elemento leído está en la colección.");
+    }
+    else
+    {
+        Console.WriteLine("El elemento leído no está en la colección.");
+    }
+}
