@@ -8,8 +8,8 @@ namespace App1.orden
     internal class Catalogo: IColeccionable
     {
         // ATT
-        private Pila pila { get; }
-        private Cola cola { get; }
+        private Pila pila;
+        private Cola cola;
 
         // Constructor
         public Catalogo(Pila p, Cola c)

@@ -8,7 +8,7 @@ namespace App1.Modelo
     public class Visualizacion : interfaces.IComparable
     {
         // ATT
-        private int cantidad { get; }
+        private int cantidad;
 
         // Construct
         public Visualizacion(int c)
