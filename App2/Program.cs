@@ -57,9 +57,17 @@ public class Program
             Console.WriteLine("Cuantos: " + coleccion.cuantos());
             Console.WriteLine("Mínimo: " + coleccion.minimo());
             Console.WriteLine("Máximo: " + coleccion.maximo());
-            Console.Write("Ingrese un valor a buscar en la colección: ");
-            int valor = int.Parse(Console.ReadLine());
+            int valor;
+            while (true)
+            {
+                Console.Write("Ingrese un valor a buscar en la colección: ");
+                if (int.TryParse(Console.ReadLine(), out valor))
+                    break;
+                Console.Write("Valor inválido. Ingrese un número válido.\n");
+            }
             Comparable vis = new Visualizacion(valor);
+
+
             if (coleccion.contiene(vis))
             {
                 Console.WriteLine("El elemento leído está en la colección.\n");
