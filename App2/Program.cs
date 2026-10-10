@@ -28,20 +28,24 @@ public class Program
     static void llenarSuscriptores(IColeccionable coleccion)
     {
         Random rnd = new Random();
-        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        string user = "user";
-        for (int i = 0; i < 10; i++)
-        { user += chars[rnd.Next(chars.Length)];}
-
         for (int i = 0; i < 20; i++)
         {
             Suscriptor sus = new Suscriptor(
-                user,
+                nombreAleatorio(rnd),
                 rnd.Next(100000000, 1000000000),
                 rnd.Next(1, 121),
                 rnd.Next(1, 10000));
             coleccion.agregar(sus);
         }
+    }
+
+    static string nombreAleatorio(Random rnd)
+    {
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        string user = "user";
+        for (int i = 0; i < 10; i++)
+        { user += chars[rnd.Next(chars.Length)]; }
+        return user;
     }
 
     static void informar(IColeccionable coleccion)
