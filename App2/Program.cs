@@ -8,6 +8,7 @@ public class Program
 {
     public static void Main()
     {
+        /*
         Pila pila = new Pila();
         Cola cola = new Cola();
         Catalogo catalogo = new Catalogo(pila,cola);
@@ -15,6 +16,19 @@ public class Program
         llenarSuscriptores(cola);
         Console.WriteLine("-- Catalogo --");
         informar(catalogo);
+        */
+
+        Pila pila = new Pila();
+        Cola cola = new Cola();
+        Playlist playlist = new Playlist();
+
+        llenarSuscriptores(pila);
+        llenarSuscriptores(cola);
+        llenarSuscriptores(playlist);
+
+        imprimirElementos(pila);
+        imprimirElementos(cola);
+        imprimirElementos(playlist);
     }
 
     static void imprimirElementos(IColeccionable col)
@@ -23,7 +37,7 @@ public class Program
         Iterador it = c.crearIterador();
         while (!it.fin())
         {
-            Console.WriteLine(it.actual());
+            Console.WriteLine($"{it.actual()}\n");
             it.siguiente();
         }
     }

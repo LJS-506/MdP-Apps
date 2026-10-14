@@ -29,7 +29,7 @@ namespace App2.Modelo
 
         public override string ToString()
         {
-            return $"Nombre: {this.getNombre()}\n ID: {this.getId()}\n Meses de Suscripción: {mesesDeSuscripcion}\n Horas Vistas: {horasVistas}";
+            return $"Nombre: {this.getNombre()}\nID: {this.getId()}\nMeses de Suscripción: {mesesDeSuscripcion}\nHoras Vistas: {horasVistas}";
         }
 
         public void setEstrategia(IEstrategiaComparacion estrategia)
