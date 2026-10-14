@@ -23,7 +23,7 @@ namespace App1.orden
             listaElems.Add(c);
         }
 
-        public interfaces.Comparable desencolar()
+        public interfaces.Comparable? desencolar()
         {
             if (listaElems.Count == 0) {return null;}
             interfaces.Comparable elem = listaElems[0];
@@ -31,7 +31,7 @@ namespace App1.orden
             return elem;
         }
 
-        public interfaces.Comparable peek()
+        public interfaces.Comparable? peek()
         {
             return listaElems[0];
         }
