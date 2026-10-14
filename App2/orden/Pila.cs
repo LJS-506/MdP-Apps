@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using App1.interfaces;
-using App1.Modelo;
+using App2.interfaces;
+using App2.Modelo;
 
-namespace App1.orden
+namespace App2.orden
 {
     internal class Pila: IColeccionable
     {

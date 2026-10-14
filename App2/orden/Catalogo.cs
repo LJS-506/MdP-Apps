@@ -1,9 +1,9 @@
-﻿using App1.interfaces;
+﻿using App2.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace App1.orden
+namespace App2.orden
 {
     internal class Catalogo: IColeccionable
     {

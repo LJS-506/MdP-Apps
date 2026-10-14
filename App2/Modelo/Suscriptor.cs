@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App2.interfaces;
+using App2.Strategy;
 
-namespace App1.Modelo
+namespace App2.Modelo
 {
-    internal class Suscriptor: Perfil, interfaces.Comparable
+    public class Suscriptor: Perfil, Comparable
     {
         // ATT
         private int mesesDeSuscripcion;
         private int horasVistas;
+        private IEstrategiaComparacion estrategia = new CompararMeses();
 
         // Constructor
         public Suscriptor(string n, int i, int c, int h): base(n, i)
@@ -30,22 +33,22 @@ namespace App1.Modelo
         }
 
         // reimplementacion comparable
-        public override bool sosIgual(interfaces.Comparable otro)
+        public override bool sosIgual(Comparable otro)
         {
             Suscriptor obj = (Suscriptor)otro;
-            return obj.getMesesDeSuscripcion() == mesesDeSuscripcion;
+            return estrategia.sosIgual(this, obj);
         }
 
-        public override bool sosMenor(interfaces.Comparable otro)
+        public override bool sosMenor(Comparable otro)
         {
             Suscriptor obj = (Suscriptor)otro;
-            return mesesDeSuscripcion < obj.getMesesDeSuscripcion();
+            return estrategia.sosMenor(this, obj);
         }
 
-        public override bool sosMayor(interfaces.Comparable otro)
+        public override bool sosMayor(Comparable otro)
         {
             Suscriptor obj = (Suscriptor)otro;
-            return mesesDeSuscripcion > obj.getMesesDeSuscripcion();
+            return estrategia.sosMayor(this, obj);
         }
     }
 }

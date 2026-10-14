@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace App1.interfaces
+namespace App2.interfaces
 {
     public interface IColeccionable
     {

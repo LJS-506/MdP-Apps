@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App2.interfaces;
 
-namespace App1.Modelo
+namespace App2.Modelo
 {
-    abstract class Perfil: interfaces.Comparable
+    public abstract class Perfil: Comparable
     {
         // ATT
         private string nombre;
@@ -25,19 +26,19 @@ namespace App1.Modelo
         { return id;}
 
         // Implementacion comparable
-        public virtual bool sosIgual(interfaces.Comparable otro)
+        public virtual bool sosIgual(Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return obj.getId() == id;
         }
 
-        public virtual bool sosMenor(interfaces.Comparable otro)
+        public virtual bool sosMenor(Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return id < obj.getId();
         }
 
-        public virtual bool sosMayor(interfaces.Comparable otro)
+        public virtual bool sosMayor(Comparable otro)
         {
             Perfil obj = (Perfil)otro;
             return id > obj.getId();

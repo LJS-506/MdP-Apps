@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using App1.interfaces;
+using App2.interfaces;
 
-namespace App1.Modelo
+namespace App2.Modelo
 {
     public class Visualizacion : interfaces.Comparable
     {
