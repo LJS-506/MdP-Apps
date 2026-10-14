@@ -1,4 +1,5 @@
 ﻿using App2.interfaces;
+using App2.Iterator;
 using App2.Modelo;
 using App2.orden;
 using App2.Strategy;
@@ -14,6 +15,17 @@ public class Program
         llenarSuscriptores(cola);
         Console.WriteLine("-- Catalogo --");
         informar(catalogo);
+    }
+
+    static void imprimirElementos(IColeccionable col)
+    {
+        Iterable c = (Iterable)col;
+        Iterador it = c.crearIterador();
+        while (!it.fin())
+        {
+            Console.WriteLine(it.actual());
+            it.siguiente();
+        }
     }
 
     static void llenar(IColeccionable coleccion)

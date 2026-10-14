@@ -23,7 +23,7 @@ namespace App2.Modelo
         }
         public override string ToString()
         {
-            return cantidad.ToString();
+            return $"Cantidad: {cantidad}";
         }
 
         //Implementacion comparable

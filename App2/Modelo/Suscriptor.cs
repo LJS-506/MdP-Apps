@@ -29,7 +29,7 @@ namespace App2.Modelo
 
         public override string ToString()
         {
-            return mesesDeSuscripcion.ToString();
+            return $"Nombre: {this.getNombre()}\n ID: {this.getId()}\n Meses de Suscripción: {mesesDeSuscripcion}\n Horas Vistas: {horasVistas}";
         }
 
         public void setEstrategia(IEstrategiaComparacion estrategia)
