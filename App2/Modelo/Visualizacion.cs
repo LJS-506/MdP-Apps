@@ -5,7 +5,7 @@ using App2.interfaces;
 
 namespace App2.Modelo
 {
-    public class Visualizacion : interfaces.Comparable
+    public class Visualizacion : Comparable
     {
         // ATT
         private int cantidad;
@@ -27,19 +27,19 @@ namespace App2.Modelo
         }
 
         //Implementacion comparable
-        public bool sosIgual(interfaces.Comparable otro)
+        public bool sosIgual(Comparable otro)
         {
             Visualizacion obj = (Visualizacion)otro;
             return obj.getCantidad() == cantidad;
         }
 
-        public bool sosMayor(interfaces.Comparable otro)
+        public bool sosMayor(Comparable otro)
         {
             Visualizacion obj = (Visualizacion)otro;
             return  cantidad  > obj.getCantidad();
         }
 
-        public bool sosMenor(interfaces.Comparable otro)
+        public bool sosMenor(Comparable otro)
         {
             Visualizacion obj = (Visualizacion)otro;
             return cantidad < obj.getCantidad();

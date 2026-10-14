@@ -32,6 +32,12 @@ namespace App2.Modelo
             return mesesDeSuscripcion.ToString();
         }
 
+        public void setEstrategia(IEstrategiaComparacion estrategia)
+        {
+            this.estrategia = estrategia;
+        }
+
+
         // reimplementacion comparable
         public override bool sosIgual(Comparable otro)
         {

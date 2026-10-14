@@ -8,30 +8,30 @@ namespace App2.orden
     internal class Cola: IColeccionable
     {
         // ATT
-        private List<interfaces.Comparable> listaElems;
+        private List<Comparable> listaElems;
 
         // Constructor
         public Cola()
         {
-            listaElems = new List<interfaces.Comparable>();
+            listaElems = new List<Comparable>();
         }
 
 
         // Meth
-        public void agregar(interfaces.Comparable c)
+        public void agregar(Comparable c)
         {
             listaElems.Add(c);
         }
 
-        public interfaces.Comparable? desencolar()
+        public Comparable? desencolar()
         {
             if (listaElems.Count == 0) {return null;}
-            interfaces.Comparable elem = listaElems[0];
+            Comparable elem = listaElems[0];
             listaElems.RemoveAt(0);
             return elem;
         }
 
-        public interfaces.Comparable? peek()
+        public Comparable? peek()
         {
             return listaElems[0];
         }
@@ -42,9 +42,9 @@ namespace App2.orden
             return listaElems.Count;
         }
 
-        public interfaces.Comparable minimo()
+        public Comparable minimo()
         {
-            interfaces.Comparable minimo = listaElems[0];
+            Comparable minimo = listaElems[0];
             for (int i=1; i<listaElems.Count; i++)
             {
                 if (listaElems[i].sosMenor(minimo)) {minimo = listaElems[i];}
@@ -52,9 +52,9 @@ namespace App2.orden
             return minimo;
         }
         
-        public interfaces.Comparable maximo()
+        public Comparable maximo()
         {
-            interfaces.Comparable maximo = listaElems[0];
+            Comparable maximo = listaElems[0];
             for (int i=1; i<listaElems.Count; i++)
             {
                 if (listaElems[i].sosMayor(maximo)) {maximo = listaElems[i];}
@@ -62,9 +62,9 @@ namespace App2.orden
             return maximo;
         }
 
-        public bool contiene(interfaces.Comparable c)
+        public bool contiene(Comparable c)
         {
-            foreach (interfaces.Comparable elem in listaElems)
+            foreach (Comparable elem in listaElems)
             {
                 if (elem.sosIgual(c)) {return true;}
             }

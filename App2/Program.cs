@@ -1,6 +1,7 @@
 ﻿using App2.interfaces;
 using App2.Modelo;
 using App2.orden;
+using App2.Strategy;
 using System.Text;
 public class Program
 {
@@ -35,6 +36,7 @@ public class Program
                 rnd.Next(100000000, 1000000000),
                 rnd.Next(1, 121),
                 rnd.Next(1, 10000));
+            sus.setEstrategia(new CompararID());
             coleccion.agregar(sus);
         }
     }

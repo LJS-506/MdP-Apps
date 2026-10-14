@@ -25,27 +25,27 @@ namespace App2.orden
             return cantidad;
         }
 
-        public interfaces.Comparable minimo()
+        public Comparable minimo()
         {
-            int p = int.Parse(pila.minimo().ToString());
-            int c = int.Parse(cola.minimo().ToString());
-            if (p<c)
+            Comparable p = pila.minimo();
+            Comparable c = cola.minimo();
+            if (p.sosMenor(c))
             { return pila.minimo();}
             return cola.minimo();
         }
 
-        public interfaces.Comparable maximo()
+        public Comparable maximo()
         {
-            int p = int.Parse(pila.maximo().ToString());
-            int c = int.Parse(cola.maximo().ToString());
-            if (p>c)
+            Comparable p = pila.maximo();
+            Comparable c = cola.maximo();
+            if (p.sosMayor(c))
             { return pila.maximo(); }
             return cola.maximo();
         }
 
-        public void agregar(interfaces.Comparable c) { }
+        public void agregar(Comparable c) { }
 
-        public bool contiene(interfaces.Comparable c)
+        public bool contiene(Comparable c)
         {
             if (pila.contiene(c))
             { return true;}
