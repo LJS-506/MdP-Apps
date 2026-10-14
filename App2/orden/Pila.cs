@@ -1,12 +1,13 @@
-﻿using System;
+﻿using App2.interfaces;
+using App2.Iterator;
+using App2.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using App2.interfaces;
-using App2.Modelo;
 
 namespace App2.orden
 {
-    internal class Pila: IColeccionable
+    internal class Pila: IColeccionable, Iterable
     {
         // ATT
         private List<Comparable> listaElems;
@@ -73,6 +74,12 @@ namespace App2.orden
                 if (elem.sosIgual(c)) { return true; }
             }
             return false;
+        }
+
+        // Implementacion Iterable
+        public Iterador crearIterador()
+        {
+            return new IteradordeComparables(listaElems);
         }
     }
 }

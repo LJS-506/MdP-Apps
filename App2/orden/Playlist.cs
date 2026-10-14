@@ -1,15 +1,16 @@
 ﻿using App2.interfaces;
+using App2.Iterator;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace App2.orden
 {
-    public class Playlist : IColeccionable
+    public class Playlist : IColeccionable, Iterable
     {
         List<Comparable> listaElems = new List<Comparable>();
 
-        public void agregar(Comparable  elem)
+        public void agregar(Comparable elem)
         {
             if (!pertenece(elem))
             {
@@ -54,7 +55,17 @@ namespace App2.orden
 
         public bool contiene(Comparable c)
         {
-            return listaElems.Contains(c);
+            foreach (Comparable elem in listaElems)
+            {
+                if (elem.sosIgual(c)) { return true; }
+            }
+            return false;
+        }
+
+        // Implementacion Iterable
+        public Iterador crearIterador()
+        {
+            return new IteradordeComparables(listaElems);
         }
     }
 }
