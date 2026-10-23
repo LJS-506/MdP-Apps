@@ -76,6 +76,18 @@ public class Program
         return user;
     }
 
+    static void cambiarEstrategia(IColeccionable coleccion, IEstrategiaComparacion estrategia)
+    {
+        Iterable c = (Iterable)coleccion;
+        Iterador it = c.crearIterador();
+        while (!it.fin())
+        {
+            Suscriptor sus = (Suscriptor)it.actual();
+            sus.setEstrategia(estrategia);
+            it.siguiente();
+        }
+    }
+
     static void informar(IColeccionable coleccion)
     {
         /* Falta implementar el patron de diseño que me permita alternar entre el tipo visualización y suscriptor, 

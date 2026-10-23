@@ -55,11 +55,7 @@ namespace App2.orden
 
         public bool contiene(Comparable c)
         {
-            foreach (Comparable elem in listaElems)
-            {
-                if (elem.sosIgual(c)) { return true; }
-            }
-            return false;
+            return pertenece(c);
         }
 
         // Implementacion Iterable
