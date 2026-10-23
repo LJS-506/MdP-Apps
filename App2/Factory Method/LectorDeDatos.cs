@@ -4,7 +4,7 @@ using System.Text;
 
 namespace App2.Factory_Method
 {
-    internal class LectorDeDatos
+    public class LectorDeDatos
     {
         public int numeroPorTeclado()
         {

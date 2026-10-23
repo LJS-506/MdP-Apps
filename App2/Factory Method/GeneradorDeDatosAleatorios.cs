@@ -16,7 +16,7 @@ namespace App2.Factory_Method
         public string stringAleatorio(int cant)
         {
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            string s = "";
+            string s = "user";
             for (int i = 0; i < cant; i++)
             { s += chars[rnd.Next(chars.Length)]; }
             return s;
