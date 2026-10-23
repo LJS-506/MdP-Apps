@@ -1,4 +1,5 @@
-﻿using App2.interfaces;
+﻿using App2.Factory_Method;
+using App2.interfaces;
 using App2.Iterator;
 using App2.Modelo;
 using App2.orden;
@@ -32,6 +33,7 @@ public class Program
         imprimirElementos(playlist);
         */
 
+        /*
         Pila pila = new Pila();
         llenarSuscriptores(pila);
         cambiarEstrategia(pila, new CompararNombre());
@@ -42,7 +44,46 @@ public class Program
         informar(pila);
         cambiarEstrategia(pila, new CompararID());
         informar(pila);
+        */
 
+        Pila pila = new Pila();
+        llenarFactory(pila, 2);
+        cambiarEstrategia(pila, new CompararNombre());
+        informarFactory(pila, 2);
+        cambiarEstrategia(pila, new CompararMeses());
+        informarFactory(pila, 2);
+        cambiarEstrategia(pila, new CompararHorasVistas());
+        informarFactory(pila, 2);
+        cambiarEstrategia(pila, new CompararID());
+        informarFactory(pila, 2);
+
+    }
+
+    public static void llenarFactory(IColeccionable coleccion, int opcion)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            Comparable comparable = FabricaDeComparables.obtenerFabrica(opcion).crearAleatorio();
+            coleccion.agregar(comparable);
+        }
+    }
+
+    public static void informarFactory(IColeccionable coleccion, int opcion)
+    {
+        Console.WriteLine("Cuantos: " + coleccion.cuantos());
+        Console.WriteLine("Mínimo: " + coleccion.minimo());
+        Console.WriteLine("Máximo: " + coleccion.maximo());
+        Comparable comparable = FabricaDeComparables.obtenerFabrica(opcion).crearPorTeclado();
+
+        if (coleccion.contiene(comparable))
+        {
+            Console.WriteLine("El elemento leído está en la colección.\n");
+
+        }
+        else
+        {
+            Console.WriteLine("El elemento leído no está en la colección.\n");
+        }
     }
 
     static void imprimirElementos(IColeccionable col)
@@ -96,8 +137,10 @@ public class Program
         Iterador it = c.crearIterador();
         while (!it.fin())
         {
-            Suscriptor sus = (Suscriptor)it.actual();
-            sus.setEstrategia(estrategia);
+            if(it.actual() is Suscriptor sus)
+            {
+                sus.setEstrategia(estrategia);
+            }
             it.siguiente();
         }
     }

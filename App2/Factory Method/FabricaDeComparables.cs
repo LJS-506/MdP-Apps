@@ -23,7 +23,7 @@ namespace App2.Factory_Method
         }
 
         // Método para elegir que fabrica usar
-        private static FabricaDeComparables obtenerFabrica(int opcion)
+        public static FabricaDeComparables obtenerFabrica(int opcion)
         {
             switch (opcion)
             {

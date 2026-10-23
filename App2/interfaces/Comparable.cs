@@ -1,3 +1,4 @@
+using App2.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Text;
