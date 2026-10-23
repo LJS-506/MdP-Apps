@@ -37,7 +37,27 @@ namespace App2.Modelo
             this.estrategia = estrategia;
         }
 
+        public void verContenido()
+        {
+            Console.WriteLine("Viendo el nuevo contenido");
+        }
 
+        public void reaccionarANotificacion()
+        {
+            Random rnd = new Random();
+            switch(rnd.Next(1, 4))
+            {
+                case 1:
+                    Console.WriteLine("Abriendo la notificación");
+                    break;
+                case 2:
+                    Console.WriteLine("Lo veo después");
+                    break;
+                case 3:
+                    Console.WriteLine("Silenciando notificaciones");
+                    break;
+            }
+        }
         // reimplementacion comparable
         public override bool sosIgual(Comparable otro)
         {
