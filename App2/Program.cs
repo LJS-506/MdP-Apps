@@ -18,6 +18,7 @@ public class Program
         informar(catalogo);
         */
 
+        /*
         Pila pila = new Pila();
         Cola cola = new Cola();
         Playlist playlist = new Playlist();
@@ -29,6 +30,19 @@ public class Program
         imprimirElementos(pila);
         imprimirElementos(cola);
         imprimirElementos(playlist);
+        */
+
+        Pila pila = new Pila();
+        llenarSuscriptores(pila);
+        cambiarEstrategia(pila, new CompararNombre());
+        informar(pila);
+        cambiarEstrategia(pila, new CompararMeses());
+        informar(pila);
+        cambiarEstrategia(pila, new CompararHorasVistas());
+        informar(pila);
+        cambiarEstrategia(pila, new CompararID());
+        informar(pila);
+
     }
 
     static void imprimirElementos(IColeccionable col)
@@ -90,14 +104,13 @@ public class Program
 
     static void informar(IColeccionable coleccion)
     {
-        /* Falta implementar el patron de diseño que me permita alternar entre el tipo visualización y suscriptor, 
-         * para poder informar correctamente de ambos tipos de colecciones. */
+        Console.WriteLine("Mínimo: " + coleccion.minimo());
+        Console.WriteLine("Máximo: " + coleccion.maximo());
+        Console.WriteLine();
+
+        /*
         try
         {
-            Console.WriteLine("Cuantos: " + coleccion.cuantos());
-            Console.WriteLine("Mínimo: " + coleccion.minimo());
-            Console.WriteLine("Máximo: " + coleccion.maximo());
-            int valor;
             while (true)
             {
                 Console.Write("Ingrese un valor a buscar en la colección: ");
@@ -106,7 +119,6 @@ public class Program
                 Console.Write("Valor inválido. Ingrese un número válido.\n");
             }
             Comparable vis = new Visualizacion(valor);
-
 
             if (coleccion.contiene(vis))
             {
@@ -121,6 +133,7 @@ public class Program
         {
             Console.WriteLine("No se puede comparar, las colecciones son diferentes");
         }
+        */
         
     }
 }
