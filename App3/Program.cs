@@ -57,6 +57,7 @@ public class Program
     */
 
     // Composite
+    /*
     public static void Main()
     {
         Carpeta raiz = new Carpeta("Raiz");
@@ -75,6 +76,9 @@ public class Program
         raiz.mostrar(0);
         Console.WriteLine("Tamaño total: " + raiz.obtenerTamano());
     }
+    */
+
+    // Template Method
 
 
 }
