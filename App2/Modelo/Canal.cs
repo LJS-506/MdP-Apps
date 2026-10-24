@@ -21,6 +21,11 @@ namespace App2.Modelo
             this.notificarContenido();
         }
 
+        public List<IObservador> getObservadores()
+        {
+            return observadores;
+        }
+
         public void iniciarEnVivo()
         {
             Console.WriteLine($"{nombre} está en vivo");

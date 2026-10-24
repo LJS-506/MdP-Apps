@@ -1,12 +1,13 @@
-﻿using App2.Factory_Method;
+﻿using App2.Decorator;
+using App2.Factory_Method;
 using App2.interfaces;
 using App2.Iterator;
 using App2.Modelo;
+using App2.Observer;
 using App2.orden;
 using App2.Strategy;
 using System.Diagnostics;
 using System.Text;
-using App2.Decorator;
 public class Program
 {
     public static void Main()
@@ -71,13 +72,31 @@ public class Program
 
         temporadaDeContenido(canal);
         */
-
+        /*
         Mostrable sus = (Suscriptor)FabricaDeSuscriptores.obtenerFabrica(2).crearAleatorio();
         sus = new DecoradorAntiguedad(sus);
         sus = new DecoradorFanatismo(sus);
         sus = new DecoradorActivo(sus);
         sus = new DecoradorRecuadro(sus);
         Console.WriteLine(sus.mostrarInfo());
+        */
+
+        Canal canal = new Canal("CTyPDS UNAJ");
+        for(int i = 0; i < 10; i++)
+        {
+            Suscriptor sus = (Suscriptor)FabricaDeComparables.obtenerFabrica(2).crearAleatorio();
+            canal.agregarObservador(sus);
+        }
+        temporadaDeContenido(canal);
+        foreach (IObservador obs in canal.getObservadores())
+        {
+            Mostrable decorado = new DecoradorAntiguedad((Mostrable)obs);
+            decorado = new DecoradorFanatismo(decorado);
+            decorado = new DecoradorActivo(decorado);
+            decorado = new DecoradorRecuadro(decorado);
+
+            Console.WriteLine(decorado.mostrarInfo());
+        }
     }
 
     public static void llenarFactory(IColeccionable coleccion, int opcion)
