@@ -1,5 +1,6 @@
 ﻿
 using App3.Adapter;
+using App3.ChainOfResponsibility;
 using App3.Command;
 using App3.Composite;
 using App3.Proxy;
@@ -95,6 +96,30 @@ public class Program
     */
 
     // Chain of Responsibility
+    public static void Main()
+    {
+        Supervisor supervisor = new Supervisor();
+        Gerente gerente = new Gerente();
+        Director director = new Director();
+
+        supervisor.setSucesor(gerente);
+        gerente.setSucesor(director);
+
+        Console.WriteLine("-- Cadena completa --");
+        supervisor.aprobar(new SolicitudDeGasto("Compra de útiles", 500));
+        supervisor.aprobar(new SolicitudDeGasto("Límite del supervisor", 1000));
+        supervisor.aprobar(new SolicitudDeGasto("Supera el límite del supervisor", 1001));
+        supervisor.aprobar(new SolicitudDeGasto("Límite del gerente", 5000));
+        supervisor.aprobar(new SolicitudDeGasto("Supera el límite del gerente", 5001));
+        supervisor.aprobar(new SolicitudDeGasto("Compra de equipamiento", 10000));
+
+        Supervisor supervisorSinDirector = new Supervisor();
+        Gerente gerenteSinDirector = new Gerente();
+        supervisorSinDirector.setSucesor(gerenteSinDirector);
+
+        Console.WriteLine("\n-- Cadena incompleta: Supervisor -> Gerente --");
+        supervisorSinDirector.aprobar(new SolicitudDeGasto("Compra de equipamiento sin director", 10000));
+    }
 
 
 }
