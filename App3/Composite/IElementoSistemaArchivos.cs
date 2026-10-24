@@ -4,7 +4,7 @@ namespace App3.Composite
 {
     public interface IElementoSistemaArchivos
     {
-        int obetenerTamano();
+        int obtenerTamano();
         void mostrar(int nivelDeIndentacion);
     }
 }

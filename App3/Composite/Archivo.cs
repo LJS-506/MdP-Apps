@@ -16,7 +16,7 @@ namespace App3.Composite
         }
 
         // Implementacion IElementoSistemaArchivos
-        public int obetenerTamano()
+        public int obtenerTamano()
         {
             return tamanofijo;
         }
