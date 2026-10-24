@@ -40,6 +40,7 @@ public class Program
     */
 
     // Command
+    /*
     public static void Main()
     {
         luz luzLiving = new luz();
@@ -52,5 +53,9 @@ public class Program
 
         controlRemoto.deshacerUltimo();
     }
+    */
+
+    // Composite
+
 
 }
