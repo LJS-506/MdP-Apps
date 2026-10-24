@@ -6,6 +6,7 @@ using App2.orden;
 using App2.Strategy;
 using System.Diagnostics;
 using System.Text;
+using App2.Decorator;
 public class Program
 {
     public static void Main()
@@ -60,6 +61,7 @@ public class Program
         informarFactory(pila, 2);
         */
 
+        /*
         Canal canal = (Canal)FabricaDeComparables.obtenerFabrica(3).crearAleatorio();
         for (int i = 0; i < 20; i++)
         {
@@ -68,7 +70,14 @@ public class Program
         }
 
         temporadaDeContenido(canal);
+        */
 
+        Mostrable sus = (Suscriptor)FabricaDeSuscriptores.obtenerFabrica(2).crearAleatorio();
+        sus = new DecoradorAntiguedad(sus);
+        sus = new DecoradorFanatismo(sus);
+        sus = new DecoradorActivo(sus);
+        sus = new DecoradorRecuadro(sus);
+        Console.WriteLine(sus.mostrarInfo());
     }
 
     public static void llenarFactory(IColeccionable coleccion, int opcion)

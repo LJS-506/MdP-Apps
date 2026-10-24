@@ -95,7 +95,7 @@ namespace App2.Modelo
         // Decorator
         public string mostrarInfo()
         {
-            return $"{base.getNombre()} : {getHorasVistas()} horas vistas.";
+            return $"{base.getNombre()} - {getHorasVistas()} horas vistas.";
         }
 
         public Suscriptor GetSuscriptor()

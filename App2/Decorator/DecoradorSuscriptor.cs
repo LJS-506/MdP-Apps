@@ -26,7 +26,11 @@ namespace App2.Decorator
         }
         public override string mostrarInfo()
         {
-            return $"{componente.GetSuscriptor().getNombre()} (Suscriptor hace {componente.GetSuscriptor().getMesesDeSuscripcion()} meses) - {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
+            string texto = componente.mostrarInfo();
+            int meses = componente.GetSuscriptor().getMesesDeSuscripcion();
+            int posicion = texto.LastIndexOf(" - ");
+
+            return texto.Insert(posicion, $" (Suscriptor hace {meses} meses)");
         }
     }
 
@@ -37,15 +41,13 @@ namespace App2.Decorator
         }
         public override string mostrarInfo()
         {
-            if (componente.GetSuscriptor().getHorasVistas() >= 50)
-            {
-                return $"[Oro]{componente.GetSuscriptor().getNombre()} - {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
-            }
-            if (componente.GetSuscriptor().getHorasVistas() >= 10 && componente.GetSuscriptor().getHorasVistas() < 50)
-            {
-                return $"[Plata]{componente.GetSuscriptor().getNombre()} - {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
-            }
-            return $"[Bronce]{componente.GetSuscriptor().getNombre()} - {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
+            int horas = componente.GetSuscriptor().getHorasVistas();
+
+            string nivel = horas >= 50 ? "Oro"
+                         : horas >= 10 ? "Plata"
+                         : "Bronce";
+
+            return $"[{nivel}] {componente.mostrarInfo()}";
         }
     }
 
@@ -56,11 +58,16 @@ namespace App2.Decorator
         }
         public override string mostrarInfo()
         {
-            if (componente.GetSuscriptor().getHorasVistas() > 0)
-            {
-                return $"{componente.GetSuscriptor().getNombre()} (Cuenta Activa)- {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
-            }
-            return $"{componente.GetSuscriptor().getNombre()} (Cuenta Inactiva)- {componente.GetSuscriptor().getHorasVistas()} horas vistas.";
+            string texto = componente.mostrarInfo();
+            string estado = componente.GetSuscriptor().getHorasVistas() > 0 ? "Cuenta Activa":"Cuenta Inactiva";
+
+            int cierre = texto.IndexOf(')');
+
+            if (cierre >= 0)
+                return texto.Insert(cierre, $", {estado}");
+
+            int separador = texto.LastIndexOf(" - ");
+            return texto.Insert(separador, $" ({estado})");
         }
     }
 
@@ -71,7 +78,10 @@ namespace App2.Decorator
         }
         public override string mostrarInfo()
         {
-            return $"***************\n{componente.mostrarInfo()}\n***************";
+            string texto = componente.mostrarInfo();
+            string borde = new string('*', texto.Length + 4);
+
+            return $"{borde}\n* {texto} *\n{borde}";
         }
     }
 }
