@@ -3,6 +3,8 @@ using App3.Adapter;
 
 public class Program
 {
+    // Adapter
+    /*
     public static void Main()
     {
         ReproductorMp3 reproductorMp3 = new ReproductorMp3();
@@ -18,4 +20,8 @@ public class Program
     {
         reproductor.reproducir(archivo);
     }
+    */
+
+    // Proxy
+
 }
