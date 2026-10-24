@@ -80,6 +80,7 @@ public class Program
     */
 
     // Template Method
+    /*
     public static void Main()
     {
         PreparadorDeCafe cafe = new PreparadorDeCafe();
@@ -91,6 +92,9 @@ public class Program
         Console.WriteLine("\n-- Té --");
         te.prepararBebida();
     }
+    */
+
+    // Chain of Responsibility
 
 
 }
