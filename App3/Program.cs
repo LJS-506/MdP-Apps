@@ -1,5 +1,6 @@
 ﻿
 using App3.Adapter;
+using App3.Proxy;
 
 public class Program
 {
@@ -23,5 +24,16 @@ public class Program
     */
 
     // Proxy
+    public static void Main()
+    {
+        Usuario usuarioSinPermiso = new Usuario("invitado");
+        Usuario administrador1 = new Usuario("admin");
+        Usuario administrador2 = new Usuario("admin");
+        DocumentoProxy documento = new DocumentoProxy("Patrones de diseño");
+
+        Console.WriteLine(documento.leer(usuarioSinPermiso));
+        Console.WriteLine(documento.leer(administrador1));
+        Console.WriteLine(documento.leer(administrador2));
+    }
 
 }
