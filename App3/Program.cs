@@ -3,6 +3,7 @@ using App3.Adapter;
 using App3.Command;
 using App3.Composite;
 using App3.Proxy;
+using App3.TemplateMethod;
 
 public class Program
 {
@@ -79,6 +80,17 @@ public class Program
     */
 
     // Template Method
+    public static void Main()
+    {
+        PreparadorDeCafe cafe = new PreparadorDeCafe();
+        PreparadorDeTe te = new PreparadorDeTe();
+
+        Console.WriteLine("-- Café --");
+        cafe.prepararBebida();
+
+        Console.WriteLine("\n-- Té --");
+        te.prepararBebida();
+    }
 
 
 }
