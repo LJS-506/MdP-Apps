@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App2.Decorator;
 using App2.interfaces;
 using App2.Observer;
 using App2.Strategy;
+using App2.Decorator;
 
 namespace App2.Modelo
 {
-    public class Suscriptor: Perfil, Comparable, IObservadorDeCanales
+    public class Suscriptor: Perfil, Comparable, IObservadorDeCanales, Mostrable
     {
         // ATT
         private int mesesDeSuscripcion;
@@ -88,6 +90,17 @@ namespace App2.Modelo
         public void actualizarContent(Canal c)
         {
             verContenido();
+        }
+
+        // Decorator
+        public string mostrarInfo()
+        {
+            return $"{base.getNombre()} : {getHorasVistas()} horas vistas.";
+        }
+
+        public Suscriptor GetSuscriptor()
+        {
+            return this;
         }
     }
 }
