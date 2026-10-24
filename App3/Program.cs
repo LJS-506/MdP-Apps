@@ -1,5 +1,6 @@
 ﻿
 using App3.Adapter;
+using App3.Command;
 using App3.Proxy;
 
 public class Program
@@ -39,5 +40,17 @@ public class Program
     */
 
     // Command
+    public static void Main()
+    {
+        luz luzLiving = new luz();
+        ControlRemoto controlRemoto = new ControlRemoto();
+
+        controlRemoto.ejecutar(new ComandoEncenderLuz(luzLiving));
+        controlRemoto.ejecutar(new ComandoApagarLuz(luzLiving));
+        controlRemoto.ejecutar(new ComandoEncenderLuz(luzLiving));
+        controlRemoto.ejecutar(new ComandoApagarLuz(luzLiving));
+
+        controlRemoto.deshacerUltimo();
+    }
 
 }
