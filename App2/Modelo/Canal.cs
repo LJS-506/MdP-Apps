@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using App2.Observer;
 
 namespace App2.Modelo
 {
-    public class Canal:Comparable
+    public class Canal:Comparable, IObservado
     {
         private string nombre;
 
@@ -17,11 +18,13 @@ namespace App2.Modelo
         public void publicarContenido()
         {
             Console.WriteLine($"{nombre} publicó contenido nuevo");
+            this.notificarContenido();
         }
 
         public void iniciarEnVivo()
         {
             Console.WriteLine($"{nombre} está en vivo");
+            this.notificarVivo();
         }
 
         public string getNombre()
@@ -49,6 +52,35 @@ namespace App2.Modelo
         {
             Canal obj = (Canal)otro;
             return nombre.CompareTo(obj.getNombre()) < 0;
+        }
+
+        // Observer
+        private List<IObservador> observadores = new List<IObservador>();
+        public void agregarObservador(IObservador obs)
+        {
+            observadores.Add(obs);
+        }
+
+        public void notificarContenido()
+        {
+            foreach (IObservador obs in observadores)
+            {
+                if (obs is IObservadorDeCanales observadorDeCanales)
+                {
+                    observadorDeCanales.actualizarContent(this);
+                }
+            }
+        }
+
+        public void notificarVivo()
+        {
+            foreach (IObservador obs in observadores)
+            {
+                if (obs is IObservadorDeCanales observadorDeCanales)
+                {
+                    observadorDeCanales.actualizarNoti(this);
+                }
+            }
         }
     }
 }

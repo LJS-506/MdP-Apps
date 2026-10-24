@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using App2.interfaces;
+using App2.Observer;
 using App2.Strategy;
 
 namespace App2.Modelo
 {
-    public class Suscriptor: Perfil, Comparable
+    public class Suscriptor: Perfil, Comparable, IObservadorDeCanales
     {
         // ATT
         private int mesesDeSuscripcion;
@@ -75,6 +76,18 @@ namespace App2.Modelo
         {
             Suscriptor obj = (Suscriptor)otro;
             return estrategia.sosMayor(this, obj);
+        }
+
+        // Observer
+
+        public void actualizarNoti(Canal c)
+        {
+            reaccionarANotificacion();
+        }
+
+        public void actualizarContent(Canal c)
+        {
+            verContenido();
         }
     }
 }
