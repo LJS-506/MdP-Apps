@@ -4,6 +4,7 @@ using App3.ChainOfResponsibility;
 using App3.Command;
 using App3.Composite;
 using App3.Proxy;
+using App3.Singleton;
 using App3.TemplateMethod;
 
 public class Program
@@ -124,6 +125,21 @@ public class Program
     */
 
     // Singleton
+    public static void Main()
+    {
+        ConfiguracionDelSistema configuracion1 = ConfiguracionDelSistema.getInstacia();
+        ConfiguracionDelSistema configuracion2 = obtenerConfiguracion();
+
+        configuracion1.establecerValor("idioma", "Español");
+
+        Console.WriteLine("Valor leído desde la segunda referencia: " + configuracion2.obtenerValor("idioma"));
+        Console.WriteLine("Ambas referencias apuntan a la misma instancia: " + object.ReferenceEquals(configuracion1, configuracion2));
+    }
+
+    public static ConfiguracionDelSistema obtenerConfiguracion()
+    {
+        return ConfiguracionDelSistema.getInstacia();
+    }
 
 
 
