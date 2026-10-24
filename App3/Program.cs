@@ -1,6 +1,7 @@
 ﻿
 using App3.Adapter;
 using App3.Command;
+using App3.Composite;
 using App3.Proxy;
 
 public class Program
@@ -56,6 +57,24 @@ public class Program
     */
 
     // Composite
+    public static void Main()
+    {
+        Carpeta raiz = new Carpeta("Raiz");
+        Carpeta documentos = new Carpeta("Documentos");
+        Carpeta imagenes = new Carpeta("Imagenes");
+
+        documentos.agregar(new Archivo("informe.txt", 100));
+        documentos.agregar(new Archivo("apuntes.txt", 200));
+
+        imagenes.agregar(new Archivo("foto1.jpg", 300));
+        imagenes.agregar(new Archivo("foto2.jpg", 400));
+
+        raiz.agregar(documentos);
+        raiz.agregar(imagenes);
+
+        raiz.mostrar(0);
+        Console.WriteLine("Tamaño total: " + raiz.obtenerTamano());
+    }
 
 
 }
