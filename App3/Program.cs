@@ -24,6 +24,7 @@ public class Program
     */
 
     // Proxy
+    /*
     public static void Main()
     {
         Usuario usuarioSinPermiso = new Usuario("invitado");
@@ -35,5 +36,8 @@ public class Program
         Console.WriteLine(documento.leer(administrador1));
         Console.WriteLine(documento.leer(administrador2));
     }
+    */
+
+    // Command
 
 }
