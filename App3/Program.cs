@@ -96,6 +96,7 @@ public class Program
     */
 
     // Chain of Responsibility
+    /*
     public static void Main()
     {
         Supervisor supervisor = new Supervisor();
@@ -120,6 +121,10 @@ public class Program
         Console.WriteLine("\n-- Cadena incompleta: Supervisor -> Gerente --");
         supervisorSinDirector.aprobar(new SolicitudDeGasto("Compra de equipamiento sin director", 10000));
     }
+    */
+
+    // Singleton
+
 
 
 }
