@@ -4,6 +4,7 @@ using App2.Iterator;
 using App2.Modelo;
 using App2.orden;
 using App2.Strategy;
+using System.Diagnostics;
 using System.Text;
 public class Program
 {
@@ -46,6 +47,7 @@ public class Program
         informar(pila);
         */
 
+        /*
         Pila pila = new Pila();
         llenarFactory(pila, 2);
         cambiarEstrategia(pila, new CompararNombre());
@@ -56,6 +58,16 @@ public class Program
         informarFactory(pila, 2);
         cambiarEstrategia(pila, new CompararID());
         informarFactory(pila, 2);
+        */
+
+        Canal canal = (Canal)FabricaDeComparables.obtenerFabrica(3).crearAleatorio();
+        for (int i = 0; i < 20; i++)
+        {
+            Suscriptor sus = (Suscriptor)FabricaDeSuscriptores.obtenerFabrica(2).crearAleatorio();
+            canal.agregarObservador(sus);
+        }
+
+        temporadaDeContenido(canal);
 
     }
 
@@ -119,6 +131,15 @@ public class Program
                 rnd.Next(1, 10000));
             sus.setEstrategia(new CompararID());
             coleccion.agregar(sus);
+        }
+    }
+
+    static void temporadaDeContenido(Canal c)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            c.publicarContenido();
+            c.iniciarEnVivo();
         }
     }
 

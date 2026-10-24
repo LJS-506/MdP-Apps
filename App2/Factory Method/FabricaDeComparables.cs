@@ -31,6 +31,8 @@ namespace App2.Factory_Method
                     return new FabricaDeVisualizaciones();
                 case 2:
                     return new FabricaDeSuscriptores();
+                case 3:
+                    return new FabricaDeCanales();
                 default:
                     Console.WriteLine("Opción inválida");
                     return null;
