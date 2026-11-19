@@ -1,6 +1,7 @@
 ﻿using Iterativos;
 using Recursivos;
 using Strategy;
+using Proxy;
 using System;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -13,6 +14,7 @@ namespace Practica4
             ejercicio1();
             ejercicio2();
             ejercicio3();
+            ejercicio4();
         }
 
         public static void ejercicio1()
@@ -112,6 +114,34 @@ namespace Practica4
                 Console.WriteLine($"n = {n}, Estrategia Lineal = {comparacionesLineal} / " +
                                   $"Estrategia Binaria = {comparacionesBinaria}, Ganancia = {ganancia}");
             }
+        }
+
+        public static void ejercicio4()
+        {
+            int n = 10000;
+            int consultas = 1000;
+            int legajoBuscado = 10000;
+
+            IServicioDeAlumnos servicio = new ServicioDeAlumnos(n);
+
+            Contador.reiniciar();
+            for (int i = 0; i < consultas; i++)
+                servicio.buscarAlumno(legajoBuscado);
+
+            long comparacionesSinProxy = Contador.getOperaciones();
+
+            IServicioDeAlumnos servicioConCache = new ServicioDeAlumnosConCache(new ServicioDeAlumnos(n));
+
+            Contador.reiniciar();
+            for (int i = 0; i < consultas; i++)
+                servicioConCache.buscarAlumno(legajoBuscado);
+
+            long comparacionesConProxy = Contador.getOperaciones();
+            long ganancia = comparacionesSinProxy / comparacionesConProxy;
+
+            Console.WriteLine($"Comparaciones sin proxy = {comparacionesSinProxy} " +
+                              $"Comparaciones con proxy = {comparacionesConProxy} " +
+                              $"Ganancia = {ganancia}");
         }
     }
 }
