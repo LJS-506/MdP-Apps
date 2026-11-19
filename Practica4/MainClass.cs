@@ -1,5 +1,6 @@
 ﻿using Iterativos;
 using Recursivos;
+using Strategy;
 using System;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,6 +12,7 @@ namespace Practica4
         {
             ejercicio1();
             ejercicio2();
+            ejercicio3();
         }
 
         public static void ejercicio1()
@@ -82,6 +84,33 @@ namespace Practica4
                     $"Llamadas de rec2: {llamadas2}, Fórmula: {formula2}\n" +
                     $"Ganancia: {ganancia}");
                 Console.WriteLine();
+            }
+        }
+
+        public static void ejercicio3()
+        {
+            int[] tamanios = { 1000, 10000, 100000, 1000000 };
+
+            foreach (int n in tamanios)
+            {
+                ListaDeInscriptos lista = new ListaDeInscriptos(new BusquedaLineal());
+                lista.cargar(n);
+                int legajoBuscado = n + 1;
+
+                Contador.reiniciar();
+                lista.buscar(legajoBuscado);
+                long comparacionesLineal = Contador.getOperaciones();
+
+                lista.setEstrategia(new BusquedaBinaria());
+
+                Contador.reiniciar();
+                lista.buscar(legajoBuscado);
+                long comparacionesBinaria = Contador.getOperaciones();
+
+                long ganancia = comparacionesLineal / comparacionesBinaria;
+
+                Console.WriteLine($"n = {n}, Estrategia Lineal = {comparacionesLineal} / " +
+                                  $"Estrategia Binaria = {comparacionesBinaria}, Ganancia = {ganancia}");
             }
         }
     }
