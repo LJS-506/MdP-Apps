@@ -1,4 +1,5 @@
 ﻿using Iterativos;
+using Recursivos;
 using System;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -9,6 +10,7 @@ namespace Practica4
         public static void Main(string[] args)
         {
             ejercicio1();
+            ejercicio2();
         }
 
         public static void ejercicio1()
@@ -56,5 +58,31 @@ namespace Practica4
 
         }
 
+        public static void ejercicio2()
+        {
+            int[] n = { 5, 10, 20, 25 };
+            foreach (int num in n)
+            {
+                Contador.reiniciar();
+                int resultado1 = AlgoritmosRecursivos.rec1(num);
+                long llamadas1 = Contador.getOperaciones();
+
+                Contador.reiniciar();
+                int resultado2 = AlgoritmosRecursivos.rec2(num);
+                long llamadas2 = Contador.getOperaciones();
+
+                long formula1 = AlgoritmosRecursivos.formulaRec1(num);
+                long formula2 = AlgoritmosRecursivos.formulaRec2(num);
+                long ganancia = llamadas1 / llamadas2;
+
+                Console.WriteLine($"n = {num}");
+                Console.WriteLine($"rec1 = {resultado1}, rec2 = {resultado2}\n" +   
+                    $"Mismo resultado? {resultado1 == resultado2}\n" +
+                    $"Llamadas de rec1: {llamadas1}, Fórmula: {formula1}\n" +
+                    $"Llamadas de rec2: {llamadas2}, Fórmula: {formula2}\n" +
+                    $"Ganancia: {ganancia}");
+                Console.WriteLine();
+            }
+        }
     }
 }
